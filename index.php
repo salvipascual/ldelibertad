@@ -47,20 +47,20 @@
 <body>
 	<div class="container-fluid">
 		<!-- images -->
-		<div class="row">
+		<div class="row row-cols-2">
 			<?php 
 				$pictures = glob("people/*.*");
 				shuffle($pictures);
 				foreach ($pictures as $filename) { 
 			?>
-				<img class="img-fluid col p-0" src="<?= $filename ?>" alt="">
+				<img class="img-fluid col-sm p-0" src="<?= $filename ?>" alt="">
 			<?php } ?>
 	
 			<!-- buttons -->
 			<div class="position-fixed text-center text-md-end btn-list">
-				<a class="btn btn-join btn-dark btn-lg" target="_blank" href="mailto:LdeLibertad1@gmail.com?subject=Mi imagen&body=Adjunta tu imagen a este correo. Pon tu nombre, dónde vives, y un texto corto explicando por qué quieres libertad en Cuba"><i class="fas fa-plus-square"></i> Súmate</a>
-				<a class="btn btn-join btn-dark btn-lg" target="_blank"	href="https://www.instagram.com/ldelibertad1_/"><i class="fab fa-instagram-square"></i></a>
-				<a class="btn btn-join btn-dark btn-lg" target="_blank"	href="https://www.facebook.com/profile.php?id=100068017934767"><i class="fab fa-facebook-square"></i></a>
+				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank" href="mailto:LdeLibertad1@gmail.com?subject=Mi foto de libertad&body=Adjunta un selfie con la L de libertad, y (si lo deseas) pon tu nombre, dónde vives, y un texto corto diciendo por qué quieres libertad"><i class="fas fa-plus-square"></i> Súmate</a>
+				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank"	href="https://www.instagram.com/ldelibertad1_/"><i class="fab fa-instagram-square"></i></a>
+				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank"	href="https://www.facebook.com/profile.php?id=100068017934767"><i class="fab fa-facebook-square"></i></a>
 				<a class="btn btn-join btn-dark btn-lg" target="_blank"	href="https://twitter.com/lde_libertad1/"><i class="fab fa-twitter-square"></i></a>
 			</div>
 		</div>
@@ -89,7 +89,6 @@
 			background-color: darkred;
 			border-radius: 25px;
 			border: 2px solid white;
-			margin-right: 10px;
 		}
 	</style>
 
