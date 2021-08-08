@@ -73,9 +73,9 @@
 			<!-- buttons -->
 			<div class="position-fixed text-center text-md-end btn-list">
 				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank" href="mailto:<?= $email ?>?subject=Mi selfie de libertad&body=Adjunta un selfie con la L de libertad, y (si lo deseas) un texto corto diciendo por qué quieres libertad. Tu nombre y correo electrónico nunca serán publicados ni compartidos con nadie."><i class="fas fa-plus-square"></i> Súmate</a>
-				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank" href="https://www.instagram.com/ldelibertad1_/"><i class="fab fa-instagram-square"></i></a>
-				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank" href="https://www.facebook.com/profile.php?id=100068017934767"><i class="fab fa-facebook-square"></i></a>
-				<a class="btn btn-join btn-dark btn-lg" target="_blank" href="https://twitter.com/lde_libertad1/"><i class="fab fa-twitter-square"></i></a>
+				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank" href="https://www.instagram.com/ldelibertadcuba"><i class="fab fa-instagram-square"></i></a>
+				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank" href="https://www.facebook.com/LdeLibertadCuba"><i class="fab fa-facebook-square"></i></a>
+				<a class="btn btn-join btn-dark btn-lg" target="_blank" href="https://twitter.com/ldelibertadcuba"><i class="fab fa-twitter-square"></i></a>
 			</div>
 		</div>
 
