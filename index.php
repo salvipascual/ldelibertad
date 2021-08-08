@@ -6,14 +6,16 @@
 		$title = "Súmate a #LdeLibertad";
 		$description = "Súmate a miles de cubanos que publican su #LdeLibertad porque quieren vivir en una Cuba libre. Sube tu foto y sé parte del movimiento.";
 
+		// TODO cache array for one hour
 		$pictures = glob("people/*.*");
+
 		shuffle($pictures);
 
 		$picturesInit = array_slice($pictures, 0, 20);
 		$picturesLoad = array_slice($pictures, 20);
 	?>
 
-	<!-- meta -->
+	<!-- Meta -->
 	<title><?= $title ?></title>
 	<link rel="canonical" href="<?= $canonical ?>">
 	<meta charset="utf-8"/>
@@ -23,15 +25,24 @@
 	<meta name="keywords" content="<?= empty($keywords) ? '' : $keywords ?>">
 	<meta name="author" content="Salvi Pascual">
 
-    <!--Social Media Thumbnail-->
-    <meta property="og:image" content="<?= $canonical . '/feature.jpg' ?>">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1049">
-    <meta property="og:image:height" content="569">
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="<?= $canonical ?>"/>
-    <meta property="og:title" content="<?= $title ?>" />
-    <meta property="og:description" content="<?= $description ?>" />
+	<!-- Favicon -->
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="/icons/16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/icons/32x32.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="/icons/64x64.png">
+	<link rel="icon" type="image/png" sizes="128x128" href="/icons/128x128.png">
+	<link rel="icon" type="image/png" sizes="256x256" href="/icons/256x256.png">
+	<link rel="icon" type="image/png" sizes="500x500" href="/icons/500x500.png">
+
+	<!--Social Media Thumbnail-->
+	<meta property="og:image" content="<?= $canonical . '/feature.png' ?>">
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:width" content="1049">
+	<meta property="og:image:height" content="569">
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="<?= $canonical ?>"/>
+	<meta property="og:title" content="<?= $title ?>" />
+	<meta property="og:description" content="<?= $description ?>" />
 
 	<!-- Boostrap -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -80,7 +91,7 @@
 			-webkit-text-stroke: 1px white;
 			margin-right: -50%;
 			transform: translate(-50%, -50%);
-    	}
+		}
 
 		.btn-list {
 			width:100%;
