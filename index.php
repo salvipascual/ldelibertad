@@ -5,6 +5,7 @@
 		$canonical = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
 		$title = "Súmate a #LdeLibertad";
 		$description = "Súmate a miles de cubanos que publican su #LdeLibertad porque quieren vivir en una Cuba libre. Sube tu foto y sé parte del movimiento.";
+		$email = "LdeLibertad1@gmail.com";
 
 		// TODO cache array for one hour
 		$pictures = glob("people/*.*");
@@ -71,7 +72,7 @@
 	
 			<!-- buttons -->
 			<div class="position-fixed text-center text-md-end btn-list">
-				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank" href="mailto:LdeLibertad1@gmail.com?subject=Mi foto de libertad&body=Adjunta un selfie con la L de libertad, y (si lo deseas) pon tu nombre, dónde vives, y un texto corto diciendo por qué quieres libertad"><i class="fas fa-plus-square"></i> Súmate</a>
+				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank" href="mailto:<?= $email ?>?subject=Mi selfie de libertad&body=Adjunta un selfie con la L de libertad, y (si lo deseas) un texto corto diciendo por qué quieres libertad. Tu nombre y correo electrónico nunca serán publicados ni compartidos con nadie."><i class="fas fa-plus-square"></i> Súmate</a>
 				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank" href="https://www.instagram.com/ldelibertad1_/"><i class="fab fa-instagram-square"></i></a>
 				<a class="btn btn-join btn-dark btn-lg me-1" target="_blank" href="https://www.facebook.com/profile.php?id=100068017934767"><i class="fab fa-facebook-square"></i></a>
 				<a class="btn btn-join btn-dark btn-lg" target="_blank" href="https://twitter.com/lde_libertad1/"><i class="fab fa-twitter-square"></i></a>
