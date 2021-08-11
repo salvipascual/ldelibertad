@@ -61,8 +61,17 @@
 		gtag('js', new Date());
 		gtag('config', 'G-86XRDSV4CG');
 	</script>
+
+	<script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
 </head>
 <body>
+
+<!-- https://bensonruan.com/how-to-access-webcam-and-take-photo-with-javascript/ -->
+<a href="#!" onclick="takePicture()">Take Picture</a>
+<video id="webcam" autoplay playsinline width="640" height="480"></video>
+<canvas id="canvas" class="d-noneX"></canvas>
+<img id="download-photo" src="">
+
 	<div class="container-fluid">
 		<!-- images -->
 		<div id="images" class="row row-cols-2">
@@ -135,6 +144,27 @@
 			var pctScrolled = Math.floor(scrollTop/trackLength * 100)
 			return pctScrolled
 		}
+
+var webcam = null;
+
+		$(document).ready(function(){
+const webcamElement = document.getElementById('webcam');
+const canvasElement = document.getElementById('canvas');
+
+webcam = new Webcam(webcamElement, 'user', canvasElement);
+
+webcam.start().then(result => {
+	console.log("webcam started");
+}).catch(err => {
+	console.log(err);
+});
+		})
+
+function takePicture() {
+	let picture = webcam.snap();
+	document.querySelector('#download-photo').href = picture;
+}
+
 	</script>
 </body>
 </html>
