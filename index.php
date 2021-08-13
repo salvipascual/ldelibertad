@@ -5,7 +5,6 @@
 		$canonical = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
 		$title = "Súmate a #LdeLibertad";
 		$description = "Súmate a miles de cubanos que publican su #LdeLibertad porque quieren vivir en una Cuba libre. Sube tu foto y sé parte del movimiento.";
-		$email = "LdeLibertad1@gmail.com";
 
 		// TODO cache array for one hour
 		$pictures = glob("people/*.*");
