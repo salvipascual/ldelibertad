@@ -19,7 +19,7 @@ if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
 date_default_timezone_set('America/Havana');
 
 // upload the selfie
-$fileName = md5(date("YmdHis") . rand(100000, 999999)) . ".png";
+$fileName = date("YmdHis") . '_' .  rand(100, 999) . ".png";
 $uploadPath = __DIR__ . "/uploads/" . $fileName;
 move_uploaded_file($_FILES['selfie']['tmp_name'], $uploadPath);
 

@@ -1,3 +1,5 @@
 people/*
 uploads/*
+logs/*
+cache/*
 emails.csv

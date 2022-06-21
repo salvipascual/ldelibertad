@@ -6,6 +6,7 @@ touch logs/access.log
 
 mkdir people
 mkdir uploads
+mkdir cache
 touch emails.csv
 
 chmod -R 777 logs

@@ -2,28 +2,46 @@
 <html>
 <head>
 	<?php
-		$canonical = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
+		// localize timezone and dates
+		date_default_timezone_set('America/Havana');
+
+		// create paths and variables
+		$urlPath = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'];
 		$title = "Súmate a #LdeLibertad";
 		$description = "Súmate a miles de cubanos que publican su #LdeLibertad porque quieren vivir en una Cuba libre. Sube tu foto y sé parte del movimiento.";
+		$keywords = "cuba,libertad,represion,damas de blanco,protestas,11J,15N,protestas,presos politicos,LdeLibertad,l de libertad,fotos de libertad";
 
-		// TODO cache array for one hour
-		$pictures = glob("people/*.*");
+		// get the cache file
+		$cache = __DIR__ . '/cache/' . date('YmdH') . '.tmp';
 
+		// if the cache exists, load from cache
+		if(file_exists($cache)) {
+			$pictures = unserialize(file_get_contents($cache));
+		}
+
+		// else, load from the filesystem 
+		else {
+			$pictures = glob("people/*.*");
+			file_put_contents($cache, serialize($pictures));
+		}
+
+		// randomize images
 		shuffle($pictures);
 
+		// load the first 20 pictures and lazy load the rest later
 		$picturesInit = array_slice($pictures, 0, 20);
 		$picturesLoad = array_slice($pictures, 20);
 	?>
 
 	<!-- Meta -->
 	<title><?= $title ?></title>
-	<link rel="canonical" href="<?= $canonical ?>">
+	<link rel="canonical" href="https://ldelibertad.com">
 	<meta charset="utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 	<meta name="description" content="<?= $description ?>">
 	<meta name="keywords" content="<?= empty($keywords) ? '' : $keywords ?>">
-	<meta name="author" content="Salvi Pascual">
+	<meta name="author" content="Salvi Pascual,Leonardo Soto">
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -35,12 +53,12 @@
 	<link rel="icon" type="image/png" sizes="500x500" href="/icons/500x500.png">
 
 	<!--Social Media Thumbnail-->
-	<meta property="og:image" content="<?= $canonical . '/feature.png' ?>">
+	<meta property="og:image" content="<?= $urlPath . '/feature.png' ?>">
 	<meta property="og:image:type" content="image/png">
 	<meta property="og:image:width" content="1049">
 	<meta property="og:image:height" content="569">
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="<?= $canonical ?>"/>
+	<meta property="og:url" content="<?= $urlPath ?>"/>
 	<meta property="og:title" content="<?= $title ?>" />
 	<meta property="og:description" content="<?= $description ?>" />
 
@@ -79,7 +97,10 @@
 		</div>
 
 		<!-- title -->
-		<p class="title position-fixed top-50 start-50">#LdeLibertad</p>
+		<div class="box position-fixed top-50 start-50 text-center">
+			<p class="title mb-0">#LdeLibertad</p>
+			<p class="subtitle mb-0">Contigo seremos <?= count($pictures) + 1 ?></p>
+		</div>
 	</div>
 
 	<!-- Modal -->
@@ -87,6 +108,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-body">
+					<p class="text-center mb-2">Tómate un selfie con la L de Libertad</p>
 					<!-- video component -->
 					<video id="webcam" class="step1 img-fluid" autoplay playsinline></video>
 
@@ -111,14 +133,24 @@
 	</div>
 
 	<style type="text/css">
+		.box {			
+			margin-right: -50%;
+			transform: translate(-50%, -50%);
+		}
+
 		.title {
 			font-family: 'Knewave', cursive;
 			font-size: 13vw;
 			color: darkred;
 			text-shadow: 5px 5px 20px black;
 			-webkit-text-stroke: 1px white;
-			margin-right: -50%;
-			transform: translate(-50%, -50%);
+		}
+
+		.subtitle {
+			font-family: fantasy;
+			font-size: 4vw;
+			color: darkred;
+			-webkit-text-stroke: 0.5px white;
 		}
 
 		.btn-list {
